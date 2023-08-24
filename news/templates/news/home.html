@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>news</title>
+</head>
+<body>
+
+    <div>
+        <table>
+            <tr>
+                <th>Author</th>
+                <th>title</th>
+
+                <th>Image</th>
+                <th>content</th>
+
+            </tr>
+            {% for news_data in news %}
+            <tr>
+                <td>{{news_data.name}}</td>
+                <td>{{news_data.title}}</td>
+                <td><img src="{{news_data.image}}" height="40%" width="100%"/></td>
+                <td>{{news_data.content}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+<!--            {% for news_data in news.articles %}-->
+<!--            <div>-->
+<!--                author:<h4>{{news_data.author}}</h4>-->
+<!--                title:<h3>{{news_data.title}}</h3>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <img src="{{news_data.urlToImage}}" height="20%" width="40%"/>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                content:<p>{{news_data.content}}</p>-->
+<!--            </div>-->
+<!--            {% endfor %}-->
+
+    </div>
+</body>
+</html>

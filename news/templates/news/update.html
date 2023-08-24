@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body onload="fetch_url()">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update">
+
+    </form>
+    <a href="" id="url"><button>Delete</button></a>
+</body>
+</html>
+
+<script>
+    function fetch_url(){
+        var url = window.location.href;
+        var new_url = url.replace('update','delete');
+        document.getElementById("url").href = new_url;
+    }
+</script>

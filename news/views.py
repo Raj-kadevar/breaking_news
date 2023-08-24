@@ -1,5 +1,4 @@
 import requests
-from django.db.utils import IntegrityError
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import View
@@ -24,11 +23,7 @@ class IndexView(View):
                 article = NewsData(name=name[0], title=title[0], image=image[0], content=content[0], time=time[0])
                 articles.append(article)
 
-        try:
-            NewsData.objects.bulk_create(articles)
-        except IntegrityError as exists:
-            print("already-exists ", exists)
-
+        NewsData.objects.bulk_create(articles)
         all_news = NewsData.objects.all().order_by('-id')
         return render(request, "news/index.html", {"news": all_news})
 
